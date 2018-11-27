@@ -25,11 +25,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_152050) do
     t.string "title"
     t.text "description"
     t.string "price"
-    t.string "image"
-    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
