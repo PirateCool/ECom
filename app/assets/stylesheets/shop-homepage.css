@@ -46,3 +46,14 @@ h2 {
 .Site-content {
   flex: 1;
 }
+
+.card-user {
+
+	margin: 0 auto;
+	width: 50%;
+}
+
+.field-user {
+	text-align: center;
+	padding-top: 5px;
+}
