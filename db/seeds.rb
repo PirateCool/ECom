@@ -29,9 +29,16 @@ cats = [
 	"https://images.pexels.com/photos/731553/pexels-photo-731553.jpeg",
 	"https://images.pexels.com/photos/958181/pexels-photo-958181.jpeg"
 ]
+
+3.times do 
+	category = Category.create!(title: Faker::Cat.breed)
+end
+
 temp_cats = cats
 temp_cats.length.times do |count| 
 
-		chat = Item.create!(title: Faker::Name.first_name, description: Faker::Lorem.paragraph, price: rand(5..10).to_s + "$", image: temp_cats[count])
+		chat = Item.create!(title: Faker::Cat.name, description: Faker::Lorem.paragraph, price: rand(5..10).to_s + "$", image: temp_cats[count], category_id: rand(1..3).to_i)
 
 end		
+
+
