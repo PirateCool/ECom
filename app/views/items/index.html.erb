@@ -66,12 +66,12 @@
         <div style="margin: 0 auto" class="col-lg-9">
         
           <div class="card mt-4">
-            <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+            <img class="card-img-top img-fluid" src=<%= item.image %> >
             <div class="card-body">
               <h3 class="card-title"><%= item.title %></h3>
               <h4><%= item.price %></h4>
               <p class="card-text"><%= item.description %></p>
-              <%= link_to "Show", item %>
+              <%= link_to "Show", item, class:"btn btn-dark"%>
             </div>
           </div>
           <!-- /.card -->
