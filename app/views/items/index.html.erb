@@ -46,20 +46,70 @@
   <h2>Tabs in a Grid</h2>
 
   <div class="w3-row">
-    <a href="javascript:void(0)" onclick="openCity(event, 'London');">
-      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">London</div>
+    <% Category.all.where(id: 1).each do |category| %>
+    <a href="javascript:void(0)" onclick="openTab(event, 'FirstTab');">
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><%= category.title %></div>
     </a>
-    <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
-      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Paris</div>
+    <% end %>
+    <% Category.all.where(id: 2).each do |category| %>
+    <a href="javascript:void(0)" onclick="openTab(event, 'SecondTab');">
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><%= category.title %></div>
     </a>
-    <a href="javascript:void(0)" onclick="openCity(event, 'Tokyo');">
-      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tokyo</div>
+    <% end %>
+    <% Category.all.where(id: 3).each do |category| %>
+    <a href="javascript:void(0)" onclick="openTab(event, 'ThirdTab');">
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><%= category.title %></div>
     </a>
+    <% end %>
   </div>
-    <div style="" class="row">
+    <div id="FirstTab" class="row w3-animate-bottom" style="display:none">
         <div class="container">
             <!-- /.col-lg-3 -->
-            <% Item.all.each do |item| %>
+            <% Item.all.where(category_id: 1).each do |item| %>
+            <div style="margin: 0 auto" class="col-lg-9">
+                <div class="card mt-4">
+                    <img class="card-img-top img-fluid" src=<%= item.image %> >
+                    <div class="card-body">
+                        <h3 class="card-title"><%= item.title %></h3>
+                        <h4><%= item.price %></h4>
+                        <p class="card-text">
+                            <%= item.description %>
+                        </p>
+                        <%= link_to "Show", item, class:"btn btn-dark"%>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col-lg-9 -->
+            <% end %>
+        </div>
+    </div>
+    <div id="SecondTab" class="row w3-animate-bottom" style="display:none">
+        <div class="container">
+            <!-- /.col-lg-3 -->
+            <% Item.all.where(category_id: 2).each do |item| %>
+            <div style="margin: 0 auto" class="col-lg-9">
+                <div class="card mt-4">
+                    <img class="card-img-top img-fluid" src=<%= item.image %> >
+                    <div class="card-body">
+                        <h3 class="card-title"><%= item.title %></h3>
+                        <h4><%= item.price %></h4>
+                        <p class="card-text">
+                            <%= item.description %>
+                        </p>
+                        <%= link_to "Show", item, class:"btn btn-dark"%>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col-lg-9 -->
+            <% end %>
+        </div>
+    </div>
+    <div id="ThirdTab" class="row w3-animate-bottom" style="display:none">
+        <div class="container">
+            <!-- /.col-lg-3 -->
+            <% Item.all.where(category_id: 3).each do |item| %>
             <div style="margin: 0 auto" class="col-lg-9">
                 <div class="card mt-4">
                     <img class="card-img-top img-fluid" src=<%= item.image %> >
@@ -89,6 +139,21 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function openTab(evt, tabName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("row");
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+         tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-border-red";
+    }
+</script>
 </body>
 
 </html>
