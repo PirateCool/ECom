@@ -5,7 +5,14 @@
  */
 
 body {
-  padding-top: 54px;
+	padding-top: 54px;
+ 	background-image: url(http://image.noelshack.com/fichiers/2018/48/2/1543342610-pattern-2.png);
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 @media (min-width: 992px) {
@@ -17,5 +24,15 @@ body {
 .center-div {
 	margin: 0 auto;
 	width: 50%;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+.w3-row {
+	margin: 0 auto;
+	width: 60%;
 	text-align: center;
 }

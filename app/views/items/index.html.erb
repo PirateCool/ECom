@@ -43,7 +43,7 @@
     </nav>
     <!-- Page Content -->
             <div class="w3-container">
-  <h2>Tabs in a Grid</h2>
+  <h2><span>Select your category</span></h2>
 
   <div class="w3-row">
     <% Category.all.where(id: 1).each do |category| %>
@@ -136,9 +136,7 @@
         </div>
         <!-- /.container -->
     </footer>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <script>
     function openTab(evt, tabName) {
       var i, x, tablinks;
