@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_152050) do
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "price"
+    t.integer "price"
     t.string "image"
     t.bigint "category_id"
     t.datetime "created_at", null: false
