@@ -48,7 +48,11 @@
                         <p class="card-text">
                             <%= item.description %>
                         </p>
-                        <%= link_to "Show", item, class:"btn btn-dark"%>
+                             <%= form_for @prout_item do |f| %>
+                                <%= f.hidden_field :item_id, value: item.id %>
+                                <%= f.number_field :quantity %>
+                                <%= f.submit "Add to cart" %>
+                              <% end %>
                     </div>
                 </div>
                 <!-- /.card -->
