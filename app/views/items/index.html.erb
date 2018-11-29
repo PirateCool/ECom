@@ -48,11 +48,12 @@
                         <p class="card-text">
                             <%= item.description %>
                         </p>
-                             <%= form_for @prout_item do |f| %>
+                             <%= form_for @order_item, :url => order_items_path do |f| %>
                                 <%= f.hidden_field :item_id, value: item.id %>
                                 <%= f.number_field :quantity %>
                                 <%= f.submit "Add to cart" %>
                               <% end %>
+                              
                     </div>
                 </div>
                 <!-- /.card -->
