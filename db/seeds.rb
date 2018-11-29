@@ -37,7 +37,7 @@ end
 temp_cats = cats
 temp_cats.length.times do |count| 
 
-		chat = Item.create!(title: Faker::Cat.name, description: Faker::Lorem.paragraph, price: rand(5..10).to_s + "$", image: temp_cats[count], category_id: rand(1..3).to_i)
+		chat = Item.create!(title: Faker::Cat.name, description: Faker::Lorem.paragraph, price: rand(5..10), image: temp_cats[count], category_id: rand(1..3).to_i)
 
 end		
 
